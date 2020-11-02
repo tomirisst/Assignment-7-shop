@@ -5,6 +5,15 @@
   Time: 16:53
   To change this template use File | Settings | File Templates.
 --%>
+<%
+    Cookie[] ck = request.getCookies();
+    Boolean here = false;
+    for (Cookie c:ck) {
+        if (!(c.getName().equals("loggedIn") && c.getValue().equals("true"))){
+            response.sendRedirect("index.jsp");
+        }
+    }
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
